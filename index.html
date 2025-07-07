@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRAISLENCE</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+    }
+    #logo-screen {
+      animation: fadeSlideDown 1.2s ease-out forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    @keyframes fadeSlideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+  <!-- Logo Splash Screen -->
+  <div id="logo-screen" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center">
+   <h1 class="text-3xl font-bold text-teal-400">Selamat Datang Di Website Produk && Service PraiOfficial</h1>
+  </div>
+
+  <div id="main-content" class="hidden">
+    <!-- Welcome Animation -->
+    <div id="welcome-message" class="text-center py-6 text-3xl font-bold text-teal-400">
+      Selamat Datang Di Website PraiOfficial
+    </div>
+
+    <audio id="welcome-audio">
+      <source src="https://www.myinstants.com/media/sounds/mixkit-fairy-bells-583.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="bg-gray-800 shadow p-6">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <h1 class="text-4xl font-bold text-teal-400 tracking-widest">PraiOfficial</h1>
+        <a href="https://wa.me/6283191417828" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Hubungi Kami</a>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+      <h2 class="text-3xl font-semibold mb-8 text-center text-teal-300">Produk & Service</h2>
+      <div id="produk-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"></div>
+    </main>
+
+    <!-- QRIS Modal -->
+    <div id="qris-modal" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50">
+      <div class="bg-white text-black p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
+        <h2 class="text-xl font-bold mb-2">Pembayaran via QRIS</h2>
+        <p class="text-sm text-gray-600 mb-4">Scan QRIS untuk melanjutkan teransaksi</p>
+        <img src="https://i.ibb.co/1bRL8bw/qris-example.jpg" alt="QRIS" class="mx-auto mb-4 rounded shadow">
+        <button onclick="document.getElementById('qris-modal').classList.add('hidden')" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Tutup</button>
+      </div>
+    </div>
+
+    <footer class="bg-gray-800 text-center py-6 shadow-inner mt-10">
+      <p class="text-gray-400">&copy; © 2025 - 2026 PraiOfficial</p>
+    </footer>
+  </div>
+
+  <!-- Script Logo & Produk -->
+  <script>
+    const produk = [
+      { nama: "Jasa Fix Pairing Code" },
+      { nama: "Jasa Fix/Eror Script Bot Watshapp" },
+      { nama: "Jasa Ubah Tema Script" },
+      { nama: "Jasa Ubah Code Pairing Jadi Nama Code Sendiri" },
+      { nama: "Jasa Pw/Key Di Panel Sc Kalian" },
+      { nama: "Jasa Pembuatan Base Bot Watshapp" },
+      { nama: "Jasa Pembuatan Database Script Bot Wa" },
+      { nama: "Jasa Pembuatan Database Script Bot Tele" },
+      { nama: "Jasa Pembuatan Database Raw Github wa&tele" },
+      { nama: "Jasa Rename Script Bot Wa" },
+      { nama: "Jasa Bikin Script Bot Bug" },
+      { nama: "Jasa Bikin Script Bot Pushkontak" },
+      { nama: "Jasa Bikin Script Bot Cpanel Simple" },
+      { nama: "Jasa Bikin Script Bot Cpanel Button" },
+      { nama: "Jasa Bikin Script Bot Md All Fitur" },
+      { nama: "Jasa Bikin Script Bot Simple Bot" },
+      { nama: "Jasa Bikin Script Bot Buy Ototmatis" },
+      { nama: "Murbug Script Pribadi PraiOfficial Fee Update" },
+      { nama: "Admin Mirbug PraiOfficial via wa&tele" },
+      { nama: "Patner Mirbug PraiOfficial via wa&tele" }
+      { nama: "Owner Murbug PraiOfficial via wa&tele" },
+      { nama: "Panel Pterodactyl Server high kuality" },
+      { nama: "Reseller Panel Server high kuality" },
+      { nama: "Admin Panel Server high kuality" },
+      { nama: "PT Panel Server high kuality" },
+      { nama: "Own Panel Server high kuality" },
+      { nama: "Script Bot Pushkontak VVIP" },
+      { nama: "Script Bot Bug PraiOfficial" },
+      { nama: "Script Bot Produk Store Buy Otomatis" }
+      { nama: "Script Bot Jaga Grup + Pushkontak + Jpm" },
+      { nama: "All Script Bot Watshapp" },
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('logo-screen').classList.add('hidden');
+        document.getElementById('main-content').classList.remove('hidden');
+        document.getElementById('welcome-audio').play();
+      }, 2500);
+
+      const container = document.getElementById('produk-list');
+      produk.forEach((item) => {
+        const div = document.createElement('div');
+        div.className = "bg-gray-800 border border-teal-500 rounded-xl shadow-lg p-6 hover:scale-105 transition-transform duration-300";
+        div.innerHTML = `
+          <h3 class="text-xl font-semibold text-teal-400">${item.nama}</h3>
+          <p class="text-gray-300 mb-4">${item.harga ?? 'Segera Hubungi PraiOfficial'}</p>
+          <a href="https://wa.me/6283191417828?text=Asalamualaikum%20Bang%20Prai%20saya%20mau%20Buy%20${encodeURIComponent(item.nama)}" class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition text-center block">Pesan via WA</a>
+        `;
+        container.appendChild(div);
+      });
+    });
+  </script>
+</body>
+</html>
